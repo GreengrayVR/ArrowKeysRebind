@@ -8,7 +8,7 @@ HHOOK hHook = 0;
 #define K_KEY 0x4B
 #define L_KEY 0x4C
 
-static bool LeftAltHold = false;
+static bool CapsLockHold = false;
 
 LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
@@ -20,16 +20,16 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
 
             if (wParam == 256)
             {
-                LeftAltHold = true;
+                CapsLockHold = true;
             }
             else if (wParam == 257)
             {
-                LeftAltHold = false;
+                CapsLockHold = false;
             }
             return 1;
         }
 
-        if (p->vkCode == J_KEY && LeftAltHold)
+        if (p->vkCode == J_KEY && CapsLockHold)
         {
             if (wParam == 256)
             {
@@ -49,7 +49,7 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
             return 1;
         }
 
-        if (p->vkCode == L_KEY && LeftAltHold)
+        if (p->vkCode == L_KEY && CapsLockHold)
         {
             if (wParam == 256)
             {
@@ -59,7 +59,7 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
             return 1;
         }
 
-        if (p->vkCode == I_KEY && LeftAltHold)
+        if (p->vkCode == I_KEY && CapsLockHold)
         {
             if (wParam == 256)
             {
